@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 
 - (void)dealloc
@@ -18,10 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     splitViewController.delegate = (id)navigationController.topViewController;
+    
     return YES;
 }
 							
@@ -45,6 +48,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    UIStoryboard *storyBoard = self.window.rootViewController.storyboard;
+    UIViewController *loginController =[storyBoard instantiateViewControllerWithIdentifier:@"LoginScreen"];
+    [self.window.rootViewController presentViewController:loginController animated:YES completion:NULL];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

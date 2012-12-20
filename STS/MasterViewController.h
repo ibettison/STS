@@ -12,6 +12,9 @@
 
 @interface MasterViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *menuItems;
+@property (strong, nonatomic) NSMutableArray *menuImages;
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+-(void)addItems;
 @end
