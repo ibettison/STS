@@ -40,7 +40,8 @@ struct SmartcodeDecoder
 		None					= 0x00000000,	//No flags
 		DecodeEAN8				= 0x00000001,	//Decode EAN8
 		DecodeEAN13				= 0x00000002,	//Decode EAN13
-        DecodeMicroQR           = 0x00000080,   //Decode Micro QR 
+		DecodeCODABAR			= 0x00000008,	//Decode Codabar NW7
+        DecodeMicroQR           = 0x00000080,   //Decode Micro QR
         DecodeDataMatrix		= 0x00000100,	//Decode DataMatrix
 		DecodeQR				= 0x00000200,	//Decode QR
 		DecodePDF417			= 0x00000800,	//Decode PDF417

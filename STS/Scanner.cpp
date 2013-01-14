@@ -1,3 +1,4 @@
+
 //
 //  Scanner.mm
 //  i-nigmaSdkTest
@@ -112,6 +113,12 @@ void CScanner::OnDecode(unsigned char *result,int len,SmartcodeDecoder::Decoding
         case SmartcodeDecoder::DecodeGS1_OMNI:
             type="GS1 OMNI";
             break;
+        case SmartcodeDecoder::DecodeCODABAR:
+            type="CODABAR NW7";
+            break;
+        case SmartcodeDecoder::Decode_2_of_5:
+            type="2 of 5";
+            break;
         default:
             type="";
             break;
@@ -157,6 +164,7 @@ void CScanner::Scan(void* pView,int x, int y, int w , int h , int timeoutInSecon
 	int nDecodePDF417 = SmartcodeDecoder::DecodePDF417; 
     int nDecode_2_of_5 = SmartcodeDecoder::Decode_2_of_5;
     int nDecode_GS1_Omni = SmartcodeDecoder::DecodeGS1_OMNI;
+    int nDecode_Codabar = SmartcodeDecoder::DecodeCODABAR;
 	m_pView=pView;
     m_x=x;
     m_y=y;
@@ -176,6 +184,7 @@ void CScanner::Scan(void* pView,int x, int y, int w , int h , int timeoutInSecon
 					 nDecodePDF417|
                      nDecode_2_of_5	|
                      nDecode_GS1_Omni|
+                     nDecode_Codabar,
                      //SmartcodeDecoder::ContinuousDecode,
                      m_timeoutInSeconds
 					 );
@@ -184,7 +193,7 @@ void CScanner::Scan(void* pView,int x, int y, int w , int h , int timeoutInSecon
 
 void CScanner::SetOrientation(int Orientation)
 {
-    m_pDecoder->SetOrientation(Orientation);
+    m_pDecoder->SetOrientation(Orientation);	
 }
 void CScanner::UpdateLicense()
 {
