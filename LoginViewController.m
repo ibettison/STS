@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
-
+@property (strong, nonatomic) NSOperationQueue *operationQueue;
 @end
 
 @implementation LoginViewController
@@ -25,8 +25,11 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    self.userPassword.delegate = self;
 	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,32 +38,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self loginButtonPressed:textField];
+    return YES;
+}
 
 - (IBAction)loginButtonPressed:(id)sender {
-    [sender resignFirstResponder];
+    self.operationQueue                 = [[NSOperationQueue alloc] init];
+    // Start the spinner spinning
+    [self.progressIndicator startAnimating];
     self.emailAddress                   = [self.userEmailAddress.text lowercaseString];
     self.password                       = self.userPassword.text;
-    
-    //if([self checkloginDetails:self.emailAddress withPassword:self.password]) { //confirmed login
+    // Start the login process on a background thread
+    [self.operationQueue addOperationWithBlock:^{
+        if([self checkloginDetails:self.emailAddress withPassword:self.password]) { //confirmed login
         //check here if the permissions allow management of samples
-        [self dismissViewControllerAnimated:YES completion:nil];
-    //}
-    //this is where we check for the email and password has been entered and call the method and reset the Viewcontroller to the splitScreenViewController    
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.progressIndicator stopAnimating];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+        }else{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.progressIndicator stopAnimating];
+            }];
+        }
+    }];
+    [self.operationQueue release];
+    // Stop the spinner spinning
 }
 
 - (BOOL)checkloginDetails:(NSString *)email withPassword:(NSString *)password{
     //this method checks the values from the database and determines if the login details are correct
     // Prepare the URL for fetching
+    
     NSString *encodedPass               = [self.password stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *encodedEmail              = [self.emailAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *searchLocation            = [NSString stringWithFormat:@"http://sampletrack.ncl.ac.uk/json.php?func=searchjson&password=%@&email_address=%@", encodedPass, encodedEmail];
+    NSString *searchLocation            = [NSString stringWithFormat:@"http://sampletrack.ncl.ac.uk/json.php?func=ipadAccess&password=%@&email_address=%@", encodedPass, encodedEmail];
     NSURL *searchURL                    = [NSURL URLWithString:searchLocation];
-    NSLog(@"searchURL = %@", searchURL);
+
     // Download and parse the JSON
-    // need to do this on another thread
     
     NSData *JSONData                    = [[NSData alloc] initWithContentsOfURL:searchURL];
-    NSLog(@"%@", JSONData);
+
     if ([JSONData length] > 0) {
         // If data was returned, parse it as JSON
         NSError *error                  = nil;
@@ -71,21 +90,24 @@
         self.loginConfirmed             = [NSString stringWithFormat:@"%@",[JSONDictionary valueForKey:@"login"]];
         self.userName                   = [NSString stringWithFormat:@"%@",[JSONDictionary valueForKey:@"user"]];
         self.permissions                = [JSONDictionary valueForKey:@"permission"];
-        NSLog(@"Permissions = %@", self.permissions);
-        NSLog(@"Add Users permission = %@", [self.permissions valueForKey:@"permission_name"]);
-        NSLog(@"%@", self.loginConfirmed);
+
         for(NSDictionary *accessPermissions in self.permissions) {
             if ([[accessPermissions objectForKey:@"permission_name"] isEqualToString:@"Manage Samples"]) {
                 NSLog(@"Permission Access for Manage Sample = %@", [accessPermissions valueForKey:@"permission_value"]);
             }
         }
-        [JSONData autorelease];
+
         //show login message
+    
         if([[JSONDictionary objectForKey:@"login"] isEqualToString:@"true"]) {
-            [[[UIAlertView alloc] initWithTitle:@"Login" message:@"You have logged in to the Biobank Sample Tracking system." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [[[UIAlertView alloc] initWithTitle:@"Login" message:@"You have logged in to the Biobank Sample Tracking system." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+            }];
             return YES;
         }else{
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You have not been able to login to the Biobank Sample Tracking system." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You have not been able to login to the Biobank Sample Tracking system." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+            }];
             return NO;
         }
     
@@ -94,13 +116,8 @@
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"You have not been able to login to the Biobank Sample Tracking system." delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
         
     }
-    [JSONData autorelease];
+    [JSONData release];
     return NO;
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)Finished {
-    [Finished resignFirstResponder];
-    return YES;
 }
 
 @end

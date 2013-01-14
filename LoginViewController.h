@@ -17,7 +17,7 @@
 @property (strong, nonatomic) NSString *loginConfirmed;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSDictionary *permissions;
-
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
 - (BOOL)checkloginDetails:(NSString *)email withPassword:(NSString *)password;
 
 - (IBAction)loginButtonPressed:(id)sender;

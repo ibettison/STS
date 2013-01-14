@@ -7,15 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Scanner.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface ScanClass : UIViewController{
 
-void* m_pScanner;
-int m_bTorch;
+@interface ScanClass : NSObject{
+
 }
-+(void) onError: (const char*) str;
-+(void) onNotify: (const char*) str;
-+(void) onDecode: (const unsigned short*) str:(const char*) strType:(const char*) strMode;
-+(void) OnCameraStopOrStart:(int) on;
+
+-(void)PlaySound:(NSString *)resourceName withFileExtension: (NSString *)extName;
++(int)FindOrientation;
 @end

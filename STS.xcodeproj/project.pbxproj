@@ -24,6 +24,8 @@
 		865CCE601681E500005E14EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865CCE5E1681E500005E14EE /* CoreVideo.framework */; };
 		865CCE621681E50E005E14EE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865CCE611681E50E005E14EE /* AVFoundation.framework */; };
 		865CCE651681F392005E14EE /* ScanClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 865CCE641681F392005E14EE /* ScanClass.mm */; };
+		86628835169D84F500BD7AC1 /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 86628833169D84F500BD7AC1 /* Close.png */; };
+		86628836169D84F500BD7AC1 /* Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86628834169D84F500BD7AC1 /* Close@2x.png */; };
 		8688903816806D9F00E21C9D /* scanBackdrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8688903716806D9F00E21C9D /* scanBackdrop.png */; };
 		86A059B91682309700DB3BA5 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86A059B71682309700DB3BA5 /* beep.mp3 */; };
 		86A059BA1682309700DB3BA5 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 86A059B81682309700DB3BA5 /* click.wav */; };
@@ -40,7 +42,6 @@
 		86B5CB7D167B80E5004E80DE /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B5CB7C167B80E5004E80DE /* MasterViewController.m */; };
 		86B5CB80167B80E5004E80DE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B5CB7F167B80E5004E80DE /* DetailViewController.m */; };
 		86B5CB88167B8165004E80DE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B5CB87167B8165004E80DE /* LoginViewController.m */; };
-		86E9E61E167F56C60036F214 /* scanBackdrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E9E61D167F56C60036F214 /* scanBackdrop.png */; };
 		86E9E640167F57F90036F214 /* identify.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E9E636167F57F80036F214 /* identify.png */; };
 		86E9E641167F57F90036F214 /* identify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E9E637167F57F80036F214 /* identify@2x.png */; };
 		86E9E642167F57F90036F214 /* Scan2D.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E9E638167F57F80036F214 /* Scan2D.png */; };
@@ -83,6 +84,8 @@
 		865CCE611681E50E005E14EE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		865CCE631681F392005E14EE /* ScanClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanClass.h; sourceTree = "<group>"; };
 		865CCE641681F392005E14EE /* ScanClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScanClass.mm; sourceTree = "<group>"; };
+		86628833169D84F500BD7AC1 /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
+		86628834169D84F500BD7AC1 /* Close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Close@2x.png"; sourceTree = "<group>"; };
 		8688903716806D9F00E21C9D /* scanBackdrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanBackdrop.png; sourceTree = "<group>"; };
 		86A059B71682309700DB3BA5 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 		86A059B81682309700DB3BA5 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
@@ -106,7 +109,6 @@
 		86B5CB7F167B80E5004E80DE /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		86B5CB86167B8165004E80DE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		86B5CB87167B8165004E80DE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
-		86E9E61D167F56C60036F214 /* scanBackdrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scanBackdrop.png; path = /Volumes/crf/IT/images/scanBackdrop.png; sourceTree = "<absolute>"; };
 		86E9E636167F57F80036F214 /* identify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = identify.png; path = ../identify.png; sourceTree = "<group>"; };
 		86E9E637167F57F80036F214 /* identify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "identify@2x.png"; path = "../identify@2x.png"; sourceTree = "<group>"; };
 		86E9E638167F57F80036F214 /* Scan2D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Scan2D.png; path = ../Scan2D.png; sourceTree = "<group>"; };
@@ -143,8 +145,6 @@
 		8609C6BD1681D4F1001C0C4C /* Detail Views */ = {
 			isa = PBXGroup;
 			children = (
-				865CCE631681F392005E14EE /* ScanClass.h */,
-				865CCE641681F392005E14EE /* ScanClass.mm */,
 				8609C6B71681D4C4001C0C4C /* NewContainerViewController.h */,
 				8609C6B81681D4C4001C0C4C /* NewContainerViewController.m */,
 				8609C6BA1681D4DA001C0C4C /* LogoutViewController.h */,
@@ -184,6 +184,15 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		861CF893169B289200D28B16 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				865CCE631681F392005E14EE /* ScanClass.h */,
+				865CCE641681F392005E14EE /* ScanClass.mm */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		865CCE481681DBA6005E14EE /* SDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +219,8 @@
 		86A059B416822FAA00DB3BA5 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				86628833169D84F500BD7AC1 /* Close.png */,
+				86628834169D84F500BD7AC1 /* Close@2x.png */,
 				8609C6A71681D34B001C0C4C /* Logout.png */,
 				8609C6A81681D34B001C0C4C /* Logout@2x.png */,
 				86E9E65E167F6FCF0036F214 /* NewContainer.png */,
@@ -224,7 +235,6 @@
 				86E9E63D167F57F90036F214 /* ScanOut@2x.png */,
 				86E9E63E167F57F90036F214 /* ScanReceipt.png */,
 				86E9E63F167F57F90036F214 /* ScanReceipt@2x.png */,
-				86E9E61D167F56C60036F214 /* scanBackdrop.png */,
 				8688903716806D9F00E21C9D /* scanBackdrop.png */,
 			);
 			name = images;
@@ -272,6 +282,7 @@
 		86B5CB66167B80E5004E80DE /* STS */ = {
 			isa = PBXGroup;
 			children = (
+				861CF893169B289200D28B16 /* Library */,
 				86B5CB78167B80E5004E80DE /* MainStoryboard.storyboard */,
 				8609C6BF1681D558001C0C4C /* ViewControllers */,
 				8609C6BE1681D52B001C0C4C /* Controllers */,
@@ -353,7 +364,6 @@
 				86B5CB75167B80E5004E80DE /* Default@2x.png in Resources */,
 				86B5CB77167B80E5004E80DE /* Default-568h@2x.png in Resources */,
 				86B5CB7A167B80E5004E80DE /* MainStoryboard.storyboard in Resources */,
-				86E9E61E167F56C60036F214 /* scanBackdrop.png in Resources */,
 				86E9E640167F57F90036F214 /* identify.png in Resources */,
 				86E9E641167F57F90036F214 /* identify@2x.png in Resources */,
 				86E9E642167F57F90036F214 /* Scan2D.png in Resources */,
@@ -372,6 +382,8 @@
 				865CCE4E1681DBA6005E14EE /* i-nigmaSdk_iPhone_1.49.doc in Resources */,
 				86A059B91682309700DB3BA5 /* beep.mp3 in Resources */,
 				86A059BA1682309700DB3BA5 /* click.wav in Resources */,
+				86628835169D84F500BD7AC1 /* Close.png in Resources */,
+				86628836169D84F500BD7AC1 /* Close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

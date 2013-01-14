@@ -46,6 +46,7 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
+        [self.navigationController popViewControllerAnimated:NO];
         [self performSegueWithIdentifier:self.detailItem sender:self];
         //self.detailDescriptionLabel.text = [NSString stringWithFormat:@"%@",self.detailItem];
     }

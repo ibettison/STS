@@ -7,6 +7,9 @@
 //
 
 #import "ScanClass.h"
+#import "Scanner.h"
+
+
 
 @interface ScanClass ()
 
@@ -14,23 +17,20 @@
 
 @implementation ScanClass
 
-+(void) onError: (const char*) str
-{
 
+
+-(void)PlaySound:(NSString *)resourceName withFileExtension: (NSString *)extName {
+    NSURL *musicFile = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                               pathForResource:[NSString stringWithFormat:@"%@",resourceName]
+                                               ofType:[NSString stringWithFormat:@"%@", extName]]];
+    NSError *error;
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:&error];
+    audioPlayer.numberOfLoops = 0;
+    [audioPlayer play]; //will need to release this memory after showing the server information
 }
-+(void) onNotify: (const char*) str
-{
 
-}
-+(void) onDecode: (const unsigned short*) str: (const char*) strType: (const char*) strMode
-
-{
++(int)FindOrientation {
     
+    return [[UIDevice currentDevice] orientation];
 }
-+(void) OnCameraStopOrStart:(int) on
-{
-    
-}
-
-
 @end

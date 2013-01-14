@@ -10,34 +10,34 @@
 #import "Scanner.h"
 
 
-void WrapError(void* pThis,const char* str)
-{
-	ViewController* p = (ViewController*)pThis;
-	[p onError:str];
-	
-}
-void WrapNotify(void* pThis,const char* str)
-{
-	ViewController* p = (ViewController*)pThis;
-	[p onNotify:str];
-	
-}
-void WrapDecode(void* pThis,const unsigned short* str,const char* SymbolType,const char* SymbolMode)
-{
-	ViewController* p = (ViewController*)pThis;
-    
-	[p onDecode:str:SymbolType:SymbolMode];
-}
-void WrapCameraStopOrStart(int on,void* pThis)
-{
-	ViewController* p = (ViewController*)pThis;
-	[p OnCameraStopOrStart:on];	
-    if (on)
-    {
-        [p onError:""];
-        [p onNotify:""];
-    }
-}
+//void WrapError(void* pThis,const char* str)
+//{
+//	ViewController* p = (ViewController*)pThis;
+//	[p onError:str];
+//	
+//}
+//void WrapNotify(void* pThis,const char* str)
+//{
+//	ViewController* p = (ViewController*)pThis;
+//	[p onNotify:str];
+//	
+//}
+//void WrapDecode(void* pThis,const unsigned short* str,const char* SymbolType,const char* SymbolMode)
+//{
+//	ViewController* p = (ViewController*)pThis;
+//    
+//	[p onDecode:str:SymbolType:SymbolMode];
+//}
+//void WrapCameraStopOrStart(int on,void* pThis)
+//{
+//	ViewController* p = (ViewController*)pThis;
+//	[p OnCameraStopOrStart:on];	
+//    if (on)
+//    {
+//        [p onError:""];
+//        [p onNotify:""];
+//    }
+//}
 
 
 @interface ViewController ()
